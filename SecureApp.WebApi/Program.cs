@@ -83,7 +83,13 @@ builder.Services.AddHttpClient("SecureClient", client =>
 });
 
 // Agregar Application Insights
-builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddApplicationInsightsTelemetry(options =>
+{
+    options.InstrumentationKey = builder.Configuration["ApplicationInsights:InstrumentationKey"];
+    options.EnableAdaptiveSampling = false;
+    options.EnableQuickPulseMetricStream = true;
+    options.EnableDebugLogger = true;
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
