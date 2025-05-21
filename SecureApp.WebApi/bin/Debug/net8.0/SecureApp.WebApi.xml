@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SecureApp.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:SecureApp.WebApi.Controllers.UsuariosController">
+            <summary>
+            Controlador para la gestión de usuarios
+            </summary>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.GetById(System.Guid)">
+            <summary>
+            Obtiene un usuario por su ID
+            </summary>
+            <param name="id">ID del usuario</param>
+            <returns>Detalles del usuario</returns>
+            <response code="200">Retorna el usuario solicitado</response>
+            <response code="404">Si el usuario no existe</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.Create(SecureApp.WebApi.Models.CreateUsuarioRequest)">
+            <summary>
+            Crea un nuevo usuario
+            </summary>
+            <param name="request">Datos del usuario a crear</param>
+            <returns>Detalles del usuario creado</returns>
+            <response code="200">Retorna el usuario creado</response>
+            <response code="400">Si los datos del usuario son inválidos</response>
+            <response code="401">Si no está autenticado</response>
+            <response code="403">Si no tiene el rol Admin</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.Update(System.Guid,SecureApp.WebApi.Models.UpdateUsuarioRequest)">
+            <summary>
+            Actualiza un usuario existente
+            </summary>
+            <param name="id">ID del usuario a actualizar</param>
+            <param name="request">Datos actualizados del usuario</param>
+            <returns>Detalles del usuario actualizado</returns>
+            <response code="200">Retorna el usuario actualizado</response>
+            <response code="400">Si los datos son inválidos</response>
+            <response code="401">Si no está autenticado</response>
+            <response code="403">Si no tiene el rol Admin</response>
+            <response code="404">Si el usuario no existe</response>
+        </member>
+    </members>
+</doc>

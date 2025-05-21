@@ -1,0 +1,325 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/SecureApp.WebApi.csproj": {}
+  },
+  "projects": {
+    "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj",
+        "projectName": "SecureApp.Application",
+        "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj",
+        "packagesPath": "/Users/dsanclemente/.nuget/packages/",
+        "outputPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dsanclemente/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj": {
+                "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj",
+        "projectName": "SecureApp.Domain",
+        "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj",
+        "packagesPath": "/Users/dsanclemente/.nuget/packages/",
+        "outputPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dsanclemente/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/SecureApp.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/SecureApp.Infrastructure.csproj",
+        "projectName": "SecureApp.Infrastructure",
+        "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/SecureApp.Infrastructure.csproj",
+        "packagesPath": "/Users/dsanclemente/.nuget/packages/",
+        "outputPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dsanclemente/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj": {
+                "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/SecureApp.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/SecureApp.WebApi.csproj",
+        "projectName": "SecureApp.WebApi",
+        "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/SecureApp.WebApi.csproj",
+        "packagesPath": "/Users/dsanclemente/.nuget/packages/",
+        "outputPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/dsanclemente/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj": {
+                "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj"
+              },
+              "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj": {
+                "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Domain/SecureApp.Domain.csproj"
+              },
+              "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/SecureApp.Infrastructure.csproj": {
+                "projectPath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/SecureApp.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Filters": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

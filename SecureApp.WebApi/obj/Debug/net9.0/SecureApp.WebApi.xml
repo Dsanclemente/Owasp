@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SecureApp.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:SecureApp.WebApi.Controllers.AuthController.Login(SecureApp.WebApi.DTOs.Auth.LoginRequest)">
+            <summary>
+            Inicia sesión en el sistema
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Validación de credenciales
+            - Prevención de ataques de fuerza bruta
+            - Tokens JWT seguros
+            </remarks>
+            <param name="request">Credenciales de acceso</param>
+            <returns>Token JWT de autenticación</returns>
+            <response code="200">Login exitoso</response>
+            <response code="400">Credenciales inválidas</response>
+            <response code="401">Credenciales incorrectas</response>
+        </member>
+        <member name="T:SecureApp.WebApi.Controllers.UsuariosController">
+            <summary>
+            Controlador para la gestión de usuarios
+            </summary>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.GetById(System.Guid)">
+            <summary>
+            Obtiene un usuario por su ID
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Prevención de enumeración de usuarios
+            </remarks>
+            <param name="id">ID del usuario</param>
+            <returns>Usuario encontrado</returns>
+            <response code="200">Usuario encontrado</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+            <response code="404">Usuario no encontrado</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.Create(SecureApp.WebApi.DTOs.Usuarios.CreateUsuarioRequest)">
+            <summary>
+            Crea un nuevo usuario
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Validación de contraseñas robusta
+            - Prevención de inyección SQL
+            - Validación de entrada de datos
+            </remarks>
+            <param name="request">Datos del usuario a crear</param>
+            <returns>Detalles del usuario creado</returns>
+            <response code="201">Retorna el usuario creado</response>
+            <response code="400">Si los datos del usuario son inválidos</response>
+            <response code="401">Si no está autenticado</response>
+            <response code="403">Si no tiene el rol Admin</response>
+            <response code="409">El email ya está registrado</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.UsuariosController.Update(System.Guid,SecureApp.WebApi.DTOs.Usuarios.UpdateUsuarioRequest)">
+            <summary>
+            Actualiza un usuario existente
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Validación de entrada de datos
+            - Prevención de inyección SQL
+            </remarks>
+            <param name="id">ID del usuario</param>
+            <param name="request">Datos actualizados del usuario</param>
+            <returns>Detalles del usuario actualizado</returns>
+            <response code="200">Retorna el usuario actualizado</response>
+            <response code="400">Si los datos son inválidos</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+            <response code="404">Si el usuario no existe</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.VulnerabilidadesController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Obtiene todas las vulnerabilidades registradas
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Prevención de inyección SQL
+            - Paginación para prevenir ataques de denegación de servicio
+            </remarks>
+            <param name="page">Número de página (comienza en 1)</param>
+            <param name="pageSize">Tamaño de página (máximo 50)</param>
+            <returns>Lista de vulnerabilidades</returns>
+            <response code="200">Lista de vulnerabilidades obtenida exitosamente</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.VulnerabilidadesController.GetById(System.Guid)">
+            <summary>
+            Obtiene una vulnerabilidad por su ID
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Prevención de inyección SQL
+            - Validación de entrada de datos
+            </remarks>
+            <param name="id">ID de la vulnerabilidad</param>
+            <returns>Vulnerabilidad encontrada</returns>
+            <response code="200">Vulnerabilidad encontrada</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+            <response code="404">Vulnerabilidad no encontrada</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.VulnerabilidadesController.Create(SecureApp.WebApi.DTOs.Vulnerabilidades.CreateVulnerabilidadRequest)">
+            <summary>
+            Crea una nueva vulnerabilidad
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Validación de entrada de datos
+            - Prevención de inyección SQL
+            - Sanitización de datos
+            </remarks>
+            <param name="request">Datos de la vulnerabilidad a crear</param>
+            <returns>Vulnerabilidad creada</returns>
+            <response code="201">Vulnerabilidad creada exitosamente</response>
+            <response code="400">Datos de entrada inválidos</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+        </member>
+        <member name="M:SecureApp.WebApi.Controllers.VulnerabilidadesController.Update(System.Guid,SecureApp.WebApi.DTOs.Vulnerabilidades.UpdateVulnerabilidadRequest)">
+            <summary>
+            Actualiza una vulnerabilidad existente
+            </summary>
+            <remarks>
+            Este endpoint implementa las siguientes medidas de seguridad OWASP:
+            - Autenticación JWT
+            - Autorización basada en roles
+            - Validación de entrada de datos
+            - Prevención de inyección SQL
+            - Sanitización de datos
+            </remarks>
+            <param name="id">ID de la vulnerabilidad</param>
+            <param name="request">Datos actualizados de la vulnerabilidad</param>
+            <returns>Vulnerabilidad actualizada</returns>
+            <response code="200">Vulnerabilidad actualizada exitosamente</response>
+            <response code="400">Datos de entrada inválidos</response>
+            <response code="401">No autorizado</response>
+            <response code="403">No tiene permisos para acceder al recurso</response>
+            <response code="404">Vulnerabilidad no encontrada</response>
+        </member>
+    </members>
+</doc>

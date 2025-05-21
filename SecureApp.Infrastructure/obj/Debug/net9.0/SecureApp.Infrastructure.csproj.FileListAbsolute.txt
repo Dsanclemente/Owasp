@@ -1,0 +1,15 @@
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/bin/Debug/net9.0/SecureApp.Infrastructure.deps.json
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/bin/Debug/net9.0/SecureApp.Infrastructure.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/bin/Debug/net9.0/SecureApp.Infrastructure.pdb
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/bin/Debug/net9.0/SecureApp.Domain.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/bin/Debug/net9.0/SecureApp.Domain.pdb
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.csproj.AssemblyReference.cache
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.AssemblyInfoInputs.cache
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.AssemblyInfo.cs
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureAp.4B584A1F.Up2Date
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/refint/SecureApp.Infrastructure.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.pdb
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/ref/SecureApp.Infrastructure.dll

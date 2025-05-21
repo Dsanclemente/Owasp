@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/DAcbYNUzWs=",
+  "success": true,
+  "projectFilePath": "/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Application/SecureApp.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/dsanclemente/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

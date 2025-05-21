@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "pTBLOZnqnMek7cPS/DGgpUGIYaNRkkbiMSCQi5u+2LE=",
+  "Source": "SecureApp.WebApi",
+  "BasePath": "_content/SecureApp.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
