@@ -236,12 +236,30 @@ builder.Services.AddScoped<UpdateUsuarioHandler>();
 var app = builder.Build();
 
 // Configurar el pipeline HTTP
-if (app.Environment.IsDevelopment())
+app.UseSwagger(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-else
+    c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+    {
+        swaggerDoc.Servers = new List<OpenApiServer>
+        {
+            new OpenApiServer { Url = $"https://{httpReq.Host.Value}" }
+        };
+    });
+});
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SecureApp API V1");
+    c.RoutePrefix = "swagger";
+    c.DocumentTitle = "SecureApp API Documentation";
+    c.DefaultModelsExpandDepth(-1);
+    c.EnableDeepLinking();
+    c.DisplayRequestDuration();
+    c.EnableFilter();
+    c.EnablePersistAuthorization();
+});
+
+if (!app.Environment.IsDevelopment())
 {
     app.UseHsts();
     app.UseHttpsRedirection();
@@ -252,13 +270,14 @@ app.UseCors("SecureAppPolicy");
 // Add global error handling middleware
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
+// Configurar headers de seguridad
 app.Use(async (context, next) =>
 {
     context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
     context.Response.Headers.Add("X-Frame-Options", "DENY");
     context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
     context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self'");
+    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:;");
     context.Response.Headers.Add("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
     await next();
 });
