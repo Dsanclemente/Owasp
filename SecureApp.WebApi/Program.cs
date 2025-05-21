@@ -286,45 +286,69 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 // Configurar headers de seguridad
 app.Use(async (context, next) =>
 {
-    // HSTS (Strict-Transport-Security)
-    context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    if (!context.Response.Headers.ContainsKey("Strict-Transport-Security"))
+    {
+        // HSTS (Strict-Transport-Security)
+        context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    }
     
-    // X-Content-Type-Options
-    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    if (!context.Response.Headers.ContainsKey("X-Content-Type-Options"))
+    {
+        // X-Content-Type-Options
+        context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    }
     
-    // X-Frame-Options
-    context.Response.Headers.Add("X-Frame-Options", "DENY");
+    if (!context.Response.Headers.ContainsKey("X-Frame-Options"))
+    {
+        // X-Frame-Options
+        context.Response.Headers.Add("X-Frame-Options", "DENY");
+    }
     
-    // X-XSS-Protection
-    context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+    if (!context.Response.Headers.ContainsKey("X-XSS-Protection"))
+    {
+        // X-XSS-Protection
+        context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+    }
     
-    // Referrer-Policy
-    context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+    if (!context.Response.Headers.ContainsKey("Referrer-Policy"))
+    {
+        // Referrer-Policy
+        context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+    }
     
-    // Content-Security-Policy
-    context.Response.Headers.Add("Content-Security-Policy", 
-        "default-src 'self'; " +
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
-        "style-src 'self' 'unsafe-inline'; " +
-        "img-src 'self' data:; " +
-        "font-src 'self'; " +
-        "connect-src 'self'");
+    if (!context.Response.Headers.ContainsKey("Content-Security-Policy"))
+    {
+        // Content-Security-Policy
+        context.Response.Headers.Add("Content-Security-Policy", 
+            "default-src 'self'; " +
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+            "style-src 'self' 'unsafe-inline'; " +
+            "img-src 'self' data:; " +
+            "font-src 'self'; " +
+            "connect-src 'self'");
+    }
     
-    // Permissions-Policy
-    context.Response.Headers.Add("Permissions-Policy", 
-        "accelerometer=(), " +
-        "camera=(), " +
-        "geolocation=(), " +
-        "gyroscope=(), " +
-        "magnetometer=(), " +
-        "microphone=(), " +
-        "payment=(), " +
-        "usb=()");
+    if (!context.Response.Headers.ContainsKey("Permissions-Policy"))
+    {
+        // Permissions-Policy
+        context.Response.Headers.Add("Permissions-Policy", 
+            "accelerometer=(), " +
+            "camera=(), " +
+            "geolocation=(), " +
+            "gyroscope=(), " +
+            "magnetometer=(), " +
+            "microphone=(), " +
+            "payment=(), " +
+            "usb=()");
+    }
     
-    // Cache-Control
-    context.Response.Headers.Add("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
-    context.Response.Headers.Add("Pragma", "no-cache");
-    context.Response.Headers.Add("Expires", "0");
+    if (!context.Response.Headers.ContainsKey("Cache-Control"))
+    {
+        // Cache-Control
+        context.Response.Headers.Add("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+        context.Response.Headers.Add("Pragma", "no-cache");
+        context.Response.Headers.Add("Expires", "0");
+    }
     
     await next();
 });
