@@ -13,3 +13,4 @@
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/refint/SecureApp.Infrastructure.dll
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.pdb
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/ref/SecureApp.Infrastructure.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.Infrastructure/obj/Debug/net9.0/SecureApp.Infrastructure.sourcelink.json

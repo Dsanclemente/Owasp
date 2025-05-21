@@ -18,6 +18,25 @@ using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar HTTPS
+builder.Services.AddHttpsRedirection(options =>
+{
+    options.HttpsPort = 443;
+});
+
+// Configurar CORS
+var corsSettings = builder.Configuration.GetSection("Cors").Get<CorsSettings>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("SecureAppPolicy", policy =>
+    {
+        policy.WithOrigins(corsSettings.AllowedOrigins.ToArray())
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 // Add services to the container.
 builder.Services.AddControllers()
     .ConfigureApiBehaviorOptions(options =>
@@ -216,18 +235,19 @@ builder.Services.AddScoped<UpdateUsuarioHandler>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SecureApp API V1");
-        c.RoutePrefix = "swagger";
-    });
+    app.UseSwaggerUI();
+}
+else
+{
+    app.UseHsts();
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
+app.UseCors("SecureAppPolicy");
 
 // Add global error handling middleware
 app.UseMiddleware<ErrorHandlingMiddleware>();

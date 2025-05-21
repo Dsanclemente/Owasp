@@ -168,3 +168,4 @@
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/bin/Debug/net9.0/Scrutor.dll
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/bin/Debug/net9.0/Swashbuckle.AspNetCore.Filters.dll
 /Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/bin/Debug/net9.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+/Users/dsanclemente/Documents/GIT/PERSONAL/C#/Owasp/SecureApp.WebApi/obj/Debug/net9.0/SecureApp.WebApi.sourcelink.json
