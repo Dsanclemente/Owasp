@@ -1,130 +1,161 @@
-# SecureApp - Aplicación Segura con OWASP
+# 🛡️ SecureApp - API Segura OWASP 2021
 
-Este proyecto es una aplicación web segura que implementa las mejores prácticas de seguridad de OWASP. Está diseñada para gestionar vulnerabilidades y usuarios de manera segura.
+## 📋 Descripción
+API REST segura que implementa los 10 principios de seguridad OWASP 2021, utilizando .NET 8, arquitectura limpia y patrones de diseño seguros.
 
-## 🛡️ Características de Seguridad
+## 🚀 Características
+- ✅ Autenticación JWT
+- ✅ Autorización basada en roles
+- ✅ Validación robusta de datos
+- ✅ Protección contra ataques comunes
+- ✅ Logging y monitoreo con Application Insights
+- ✅ Documentación con Swagger
+- ✅ Headers de seguridad configurados
+- ✅ CORS configurado
+- ✅ Manejo de errores global
+- ✅ Validación de contraseñas segura
 
-### Autenticación y Autorización
-- Autenticación JWT con expiración configurable
-- Autorización basada en roles (Admin, Usuario)
-- Protección contra ataques de fuerza bruta
-- Validación robusta de contraseñas
-- Tokens JWT seguros con claims personalizados
-
-### Gestión de Usuarios
-- Registro seguro de usuarios
-- Validación de datos de entrada
-- Prevención de enumeración de usuarios
-- Protección contra inyección SQL
-- Roles de usuario (Admin, Usuario)
-
-### Gestión de Vulnerabilidades
-- Registro de vulnerabilidades
-- Seguimiento de estado
-- Asignación de severidad
-- Documentación de soluciones
-- Historial de cambios
-
-## 🏗️ Arquitectura
-
-El proyecto sigue una arquitectura limpia (Clean Architecture) con las siguientes capas:
-
-- **Domain**: Entidades y reglas de negocio
-- **Application**: Casos de uso y lógica de aplicación
-- **Infrastructure**: Implementaciones concretas (EF Core, SQL Server)
-- **WebApi**: API REST con Swagger
-
-## 🚀 Tecnologías
-
-- .NET 9.0
-- Entity Framework Core
-- SQL Server
+## 🛠️ Tecnologías
+- .NET 8
+- C# 12
+- Arquitectura Limpia
 - JWT Authentication
 - Swagger/OpenAPI
-- MediatR
+- Application Insights
+- BCrypt para hashing
+- MediatR para CQRS
 - FluentValidation
 
-## 📋 Requisitos
-
-- .NET 9.0 SDK
-- SQL Server
+## 📦 Requisitos
+- .NET 8 SDK
 - Visual Studio 2022 o VS Code
+- Git
 
-## 🔧 Configuración
+## 🚀 Instalación
 
-1. Clonar el repositorio
-2. Configurar la cadena de conexión en `appsettings.json`
-3. Ejecutar las migraciones:
-   ```bash
-   dotnet ef database update
-   ```
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tu-usuario/SecureApp.git
+cd SecureApp
+```
+
+2. Restaurar dependencias:
+```bash
+dotnet restore
+```
+
+3. Configurar variables de entorno:
+```bash
+# Crear archivo appsettings.Development.json
+{
+  "JwtSettings": {
+    "SecretKey": "tu_clave_secreta_muy_larga_y_segura_min_32_caracteres",
+    "ExpirationInMinutes": 60,
+    "Issuer": "https://localhost:7001",
+    "Audience": "https://localhost:7001"
+  }
+}
+```
+
 4. Ejecutar la aplicación:
-   ```bash
-   dotnet run
-   ```
+```bash
+dotnet run --project SecureApp.WebApi
+```
 
-## 📚 Documentación API
+## 📚 Ejemplos de Uso
 
-La documentación de la API está disponible en Swagger UI:
-- URL: `https://localhost:5001/swagger`
-- Autenticación: JWT Bearer Token
+### 1. Registro de Usuario
+```http
+POST /api/usuarios/registro
+Content-Type: application/json
 
-### Endpoints Principales
+{
+  "nombre": "Usuario Ejemplo",
+  "email": "usuario@ejemplo.com",
+  "password": "P@ssw0rd123!",
+  "rol": "Usuario"
+}
+```
 
-#### Autenticación
-- `POST /api/auth/login`: Inicio de sesión
+### 2. Login
+```http
+POST /api/usuarios/login
+Content-Type: application/json
 
-#### Usuarios
-- `GET /api/usuarios/{id}`: Obtener usuario
-- `POST /api/usuarios`: Crear usuario (Admin)
-- `PUT /api/usuarios/{id}`: Actualizar usuario (Admin)
+{
+  "email": "usuario@ejemplo.com",
+  "password": "P@ssw0rd123!"
+}
+```
 
-#### Vulnerabilidades
-- `GET /api/vulnerabilidades`: Listar vulnerabilidades
-- `POST /api/vulnerabilidades`: Crear vulnerabilidad
-- `PUT /api/vulnerabilidades/{id}`: Actualizar vulnerabilidad
+### 3. Crear Vulnerabilidad
+```http
+POST /api/vulnerabilidades
+Authorization: Bearer {token}
+Content-Type: application/json
 
-## 🔐 Roles de Usuario
+{
+  "titulo": "Vulnerabilidad XSS",
+  "descripcion": "Cross-Site Scripting en formulario de contacto",
+  "severidad": "Alta",
+  "estado": "Abierta"
+}
+```
 
-- **Admin**: Acceso total al sistema
-- **Usuario**: Acceso limitado a funcionalidades básicas
+## 🔒 Seguridad
 
-## 🛠️ Desarrollo
+### Headers de Seguridad Implementados
+- ✅ Strict-Transport-Security (HSTS)
+- ✅ X-Content-Type-Options
+- ✅ X-Frame-Options
+- ✅ X-XSS-Protection
+- ✅ Content-Security-Policy
+- ✅ Referrer-Policy
+- ✅ Permissions-Policy
+- ✅ Cache-Control
 
-### Estructura de Carpetas
+### Validaciones de Seguridad
+- ✅ Contraseñas seguras (mínimo 8 caracteres, mayúsculas, minúsculas, números y símbolos)
+- ✅ Protección contra fuerza bruta
+- ✅ Tokens JWT con expiración
+- ✅ Sanitización de datos
+- ✅ Validación de tipos
+- ✅ CORS configurado
+- ✅ HTTPS forzado
+
+## 📊 Monitoreo
+
+### Application Insights
+La aplicación está configurada con Application Insights para:
+- 📈 Monitoreo de rendimiento
+- 🔍 Trazabilidad de requests
+- ⚠️ Alertas de errores
+- 📊 Métricas de uso
+- 🔐 Eventos de seguridad
+
+## 🏗️ Estructura del Proyecto
 ```
 SecureApp/
-├── SecureApp.Domain/         # Entidades y reglas de negocio
-├── SecureApp.Application/    # Casos de uso y lógica de aplicación
-├── SecureApp.Infrastructure/ # Implementaciones concretas
-└── SecureApp.WebApi/        # API REST
+├── SecureApp.Domain/           # Entidades y reglas de negocio
+├── SecureApp.Application/      # Casos de uso y lógica de aplicación
+├── SecureApp.Infrastructure/   # Implementaciones técnicas
+└── SecureApp.WebApi/          # API y configuración
 ```
 
-### Patrones de Diseño
-- CQRS (Command Query Responsibility Segregation)
-- Repository Pattern
-- Unit of Work
-- Value Objects
-- Domain Events
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 🤝 Contribución
-
+## 🤝 Contribuir
 1. Fork el proyecto
 2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
 3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abrir un Pull Request
 
-## 📧 Contacto
+## 📝 Licencia
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-David Sanclemente - [@dsanclemente](https://github.com/dsanclemente)
+## 👥 Autores
+- **David Sanclemente** - *Desarrollo inicial* - [@dsanclemente](https://github.com/dsanclemente)
 
 ## 🙏 Agradecimientos
-
 - OWASP por sus guías de seguridad
 - La comunidad de .NET
 - Todos los contribuidores 

@@ -15,6 +15,7 @@ using Swashbuckle.AspNetCore.Filters;
 using SecureApp.Application.Usuarios;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
+using Microsoft.ApplicationInsights.Extensibility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,6 +81,9 @@ builder.Services.AddHttpClient("SecureClient", client =>
     MaxAutomaticRedirections = 0,
     CheckCertificateRevocationList = true
 });
+
+// Agregar Application Insights
+builder.Services.AddApplicationInsightsTelemetry();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -236,28 +240,31 @@ builder.Services.AddScoped<UpdateUsuarioHandler>();
 var app = builder.Build();
 
 // Configurar el pipeline HTTP
-app.UseSwagger(c =>
+if (app.Environment.IsDevelopment() || builder.Configuration.GetValue<bool>("EnableSwaggerInProduction"))
 {
-    c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
+    app.UseSwagger(c =>
     {
-        swaggerDoc.Servers = new List<OpenApiServer>
+        c.PreSerializeFilters.Add((swaggerDoc, httpReq) =>
         {
-            new OpenApiServer { Url = $"https://{httpReq.Host.Value}" }
-        };
+            swaggerDoc.Servers = new List<OpenApiServer>
+            {
+                new OpenApiServer { Url = $"https://{httpReq.Host.Value}" }
+            };
+        });
     });
-});
 
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SecureApp API V1");
-    c.RoutePrefix = "swagger";
-    c.DocumentTitle = "SecureApp API Documentation";
-    c.DefaultModelsExpandDepth(-1);
-    c.EnableDeepLinking();
-    c.DisplayRequestDuration();
-    c.EnableFilter();
-    c.EnablePersistAuthorization();
-});
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SecureApp API V1");
+        c.RoutePrefix = "swagger";
+        c.DocumentTitle = "SecureApp API Documentation";
+        c.DefaultModelsExpandDepth(-1);
+        c.EnableDeepLinking();
+        c.DisplayRequestDuration();
+        c.EnableFilter();
+        c.EnablePersistAuthorization();
+    });
+}
 
 if (!app.Environment.IsDevelopment())
 {
@@ -273,12 +280,46 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 // Configurar headers de seguridad
 app.Use(async (context, next) =>
 {
+    // HSTS (Strict-Transport-Security)
+    context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+    
+    // X-Content-Type-Options
     context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    
+    // X-Frame-Options
     context.Response.Headers.Add("X-Frame-Options", "DENY");
+    
+    // X-XSS-Protection
     context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+    
+    // Referrer-Policy
     context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-    context.Response.Headers.Add("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:;");
-    context.Response.Headers.Add("Permissions-Policy", "geolocation=(), microphone=(), camera=()");
+    
+    // Content-Security-Policy
+    context.Response.Headers.Add("Content-Security-Policy", 
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+        "style-src 'self' 'unsafe-inline'; " +
+        "img-src 'self' data:; " +
+        "font-src 'self'; " +
+        "connect-src 'self'");
+    
+    // Permissions-Policy
+    context.Response.Headers.Add("Permissions-Policy", 
+        "accelerometer=(), " +
+        "camera=(), " +
+        "geolocation=(), " +
+        "gyroscope=(), " +
+        "magnetometer=(), " +
+        "microphone=(), " +
+        "payment=(), " +
+        "usb=()");
+    
+    // Cache-Control
+    context.Response.Headers.Add("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    context.Response.Headers.Add("Pragma", "no-cache");
+    context.Response.Headers.Add("Expires", "0");
+    
     await next();
 });
 
